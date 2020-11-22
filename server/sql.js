@@ -89,6 +89,11 @@ const ADD_REVIEWS_FOR_NEW_PERIOD =
 const UPDATE_PERFORMANCE_PERIOD =
   "UPDATE review_main set title = COALESCE(?,title), start = COALESCE(?,start), end = COALESCE(?,end), is_closed = COALESCE(?,is_closed) WHERE id = ?";
 
+// Login API
+// We only allow user who is still active to login
+const LOGIN =
+  "SELECT id, email, first_name, last_name, role FROM users WHERE email = ? AND password = ? AND active = 1";
+
 module.exports = {
   GET_USERS,
   UPDATE_USER,
@@ -100,4 +105,5 @@ module.exports = {
   ADD_NEW_PERFORMANCE_PERIOD,
   ADD_REVIEWS_FOR_NEW_PERIOD,
   UPDATE_PERFORMANCE_PERIOD,
+  LOGIN,
 };

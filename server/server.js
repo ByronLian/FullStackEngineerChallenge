@@ -6,6 +6,7 @@ var cors = require("cors");
 // Import API modules
 var userApi = require("./apis/user");
 var reviewApi = require("./apis/review");
+var loginApi = require("./apis/login");
 const bodyParser = require("body-parser");
 app.use(cors());
 app.use(bodyParser.json());
@@ -34,6 +35,8 @@ app.get("/api/review-periods/", [reviewApi.getAllPerformancePeriods]);
 app.post("/api/review-periods/", [reviewApi.addNewPerformancePeriod]);
 app.patch("/api/review-periods/:id", [reviewApi.updatePerformancePeriod]);
 app.get("/api/all-reviews/:id", [reviewApi.getReviewsByPeriodId]);
+// Login APIs
+app.post("/api/login", [loginApi.login]);
 
 // 404
 app.use(function (req, res, next) {
