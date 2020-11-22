@@ -6,6 +6,11 @@
     "start-api": "node server/server.js"
   },
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "md5": "^2.3.0",
+    "sqlite3": "^5.0.0"
+  },
+  "devDependencies": {
+    "cors": "^2.8.5"
   }
 }
