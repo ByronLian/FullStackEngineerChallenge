@@ -5,6 +5,13 @@ const FIELDS = {
   EMAIL: "email",
   PASSWORD: "password",
   ACTIVE: "active",
+  CONTENT: "content",
+  UPDATED_TIME: "updated_time",
+  AUDITOR_ID: "auditor_id",
+  TITLE: "title",
+  START: "start",
+  END: "end",
+  IS_CLOSED: "is_closed",
 }
 
 module.exports = {
