@@ -3,14 +3,41 @@
   "version": "1.0.0",
   "description": "Performance Review System builded with React and SQLite for PayPay FullStackEngineerChallenge",
   "scripts": {
+    "start-app": "webpack-dev-server --config webpack.config.dev.js --port 3500",
     "start-api": "node server/server.js"
   },
   "dependencies": {
     "express": "^4.17.1",
     "md5": "^2.3.0",
+    "prop-types": "^15.7.2",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
     "sqlite3": "^5.0.0"
   },
   "devDependencies": {
-    "cors": "^2.8.5"
+    "@babel/core": "^7.12.3",
+    "babel-loader": "^8.1.0",
+    "babel-preset-react-app": "^9.1.2",
+    "cors": "^2.8.5",
+    "css-loader": "^5.0.1",
+    "eslint": "^7.14.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-config-prettier": "^6.15.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-prettier": "^3.1.4",
+    "eslint-plugin-react": "^7.21.5",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "html-webpack-plugin": "^4.5.0",
+    "prettier": "^2.2.0",
+    "style-loader": "^2.0.0",
+    "webpack": "^4.44.2",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0"
+  },
+  "babel": {
+    "presets": [
+      "babel-preset-react-app"
+    ]
   }
 }
