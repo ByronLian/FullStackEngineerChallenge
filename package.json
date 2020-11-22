@@ -1,0 +1,11 @@
+{
+  "name": "react-sqlite-application",
+  "version": "1.0.0",
+  "description": "Performance Review System builded with React and SQLite for PayPay FullStackEngineerChallenge",
+  "scripts": {
+    "start-api": "node server/server.js"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
