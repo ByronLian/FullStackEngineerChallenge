@@ -1,6 +1,6 @@
 import fetchData from './services/fetch'
 import { generateFetchOptions } from './services/helper'
-import { REVIEW_API_PATH, GET, PATCH } from './constants'
+import { REVIEW_API_PATH, REVIEW_PERIODS_API_PATH, REVIEW_ALL_API_PATH, GET, PATCH } from './constants'
 
 // Get reviews by user id
 const getReviewsByUser = (key) => {
@@ -18,7 +18,19 @@ const updateReviewByUser = (key, options) => {
   )
 }
 
+// Get all Performance Periods
+const getPerformancePeriods = () => {
+  return fetchData(REVIEW_PERIODS_API_PATH, generateFetchOptions(GET))
+}
+
+// Get all reviews base on Performance Period
+const getPerformancePeriodById = (key) => {
+  return fetchData(`${REVIEW_ALL_API_PATH}/${key}`, generateFetchOptions(GET))
+}
+
 export const REVIEW = {
   getReviewsByUser,
   updateReviewByUser,
+  getPerformancePeriods,
+  getPerformancePeriodById,
 }

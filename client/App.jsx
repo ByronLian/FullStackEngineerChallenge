@@ -5,6 +5,7 @@ import { authReducer, initialState } from './contexts/authReducer'
 import Home from './pages/index'
 import Reviews from './pages/review/index'
 import Employee from './pages/admin/employee/index'
+import Assign from './pages/admin/assign/index'
 import PageNotFound from './pages/404/index'
 import './App.css'
 
@@ -17,6 +18,7 @@ const App = () => {
         <Route exact path="/" component={Home} />
         <Route exact path="/reviews" component={Reviews} />
         <Route exact path="/employees" component={Employee} />
+        <Route exact path="/assign" component={Assign} />
         <Route component={PageNotFound} />
       </Switch>
     </AuthContext.Provider>
