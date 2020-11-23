@@ -4,3 +4,41 @@
   border: outset;
   padding: 20px;
 }
+
+.toast_header, .modal_header, .tr_header {
+  background-color: wheat;
+}
+
+.toast_body {
+  background-color: cornsilk;
+}
+
+td {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.sm_col {
+  max-width: 50px;
+}
+
+.md_col {
+  max-width: 150px;
+}
+
+.lg_col {
+  max-width: 250px;
+}
+
+.header {
+  width: 100%;
+}
+
+.header_title {
+  width: 350px;
+}
+
+.header_user {
+  float: right;
+}
