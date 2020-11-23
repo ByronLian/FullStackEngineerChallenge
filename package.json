@@ -4,8 +4,10 @@
   "description": "Performance Review System builded with React and SQLite for PayPay FullStackEngineerChallenge",
   "scripts": {
     "start": "run-p start-api start-app",
-    "start-app": "webpack-dev-server --config webpack.config.dev.js --port 3500",
-    "start-api": "node server/server.js"
+    "start-init-db": "run-p init-db start-api start-app",
+    "init-db": "rm -rf db.sqlite",
+    "start-api": "node server/server.js",
+    "start-app": "webpack-dev-server --config webpack.config.dev.js --port 3500"
   },
   "dependencies": {
     "express": "^4.17.1",

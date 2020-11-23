@@ -61,7 +61,7 @@ module.exports = {
                                                 review_id INTEGER,
                                                 auditor_id INTEGER,
                                                 candidate_id INTEGER,
-                                                updated_time TEXT DEFAULT '',
+                                                updated_time TEXT DEFAULT 'N/A',
                                                 content TEXT DEFAULT '',
                                                 created_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP
                                               )`,

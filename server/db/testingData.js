@@ -8,7 +8,6 @@ const userTestingData = (db) => {
   db.run(insert, ["User", "A", "user1@test.com", md5("wefD1@3*"), "user"]);
   db.run(insert, ["User", "B", "user2@test.com", md5("#21Fssc"), "user"]);
   db.run(insert, ["User", "C", "user3@test.com", md5("21FsSc@"), "user"]);
-  db.run(insert, ["User", "D", "user4@test.com", md5("21FssC*"), "user"]);
 };
 
 // Review period testing data
@@ -23,22 +22,19 @@ const reviewMainTestingData = (db) => {
 // Reviews testing data
 const reviewsTestingData = (db) => {
   var insert =
-    "INSERT INTO REVIEWS (review_id, auditor_id, candidate_id) VALUES (?,?,?)";
-  db.run(insert, [1, 1, 2]);
-  db.run(insert, [1, null, 3]);
-  db.run(insert, [1, null, 4]);
-  db.run(insert, [1, 2, 1]);
-  db.run(insert, [1, 3, 5]);
+    "INSERT INTO REVIEWS (review_id, auditor_id, candidate_id, content) VALUES (?,?,?,?)";
+  db.run(insert, [1, 1, 2, "Nice work"]);
+  db.run(insert, [1, 2, 3, "Need to improve skill"]);
+  db.run(insert, [1, 3, 4, "Good"]);
+  db.run(insert, [1, 4, 1, "Good Management"]);
   db.run(insert, [2, 1, 2]);
   db.run(insert, [2, null, 3]);
-  db.run(insert, [2, null, 4]);
-  db.run(insert, [2, 2, 1]);
-  db.run(insert, [2, 3, 5]);
-  db.run(insert, [3, 1, 2]);
-  db.run(insert, [3, 4, 3]);
-  db.run(insert, [3, 3, 4]);
-  db.run(insert, [3, 5, 1]);
-  db.run(insert, [3, 2, 5]);
+  db.run(insert, [2, 2, 4]);
+  db.run(insert, [2, 3, 1]);
+  db.run(insert, [3, 4, 2]);
+  db.run(insert, [3, null, 3]);
+  db.run(insert, [3, null, 4]);
+  db.run(insert, [3, 1, 1]);
 };
 
 module.exports = {
