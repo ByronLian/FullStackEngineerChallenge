@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import { Container, Alert, Button, Form } from 'react-bootstrap'
-import { isEmptyString } from '../utils'
-import { CALL_API } from '../apis/interface'
-import { LOGIN_SUCCESS, LOCAL_STORAGE_KEY } from '../contexts/constants'
+import { isEmptyString } from '../../utils'
+import { CALL_API } from '../../apis/interface'
+import { LOGIN_SUCCESS, LOCAL_STORAGE_KEY } from '../../contexts/constants'
 
 const Login = ({ dispatch }) => {
   const [email, setEmail] = useState('')
