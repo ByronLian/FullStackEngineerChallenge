@@ -51,7 +51,7 @@ const Login = ({ dispatch }) => {
     <Container className="login_form">
       <Form>
         <Alert variant="warning">Please Login</Alert>
-        {error && <Alert variant="danger">Login Failure !</Alert>}
+        {error && <Alert variant="danger">Please check email / password and your account is active</Alert>}
         <Form.Group>
           <Form.Label>Email:</Form.Label>
           <Form.Control type="email" value={email} onChange={(e) => handleInputChange(e, 'email')} />
@@ -68,11 +68,11 @@ const Login = ({ dispatch }) => {
           <Form.Label>Demo Accounts</Form.Label>
           <br />
           <Button variant="outline-primary" type="button" onClick={() => handleTestingLogin('admin')}>
-            Admin
+            admin@test.com
           </Button>
           &nbsp;
           <Button variant="outline-primary" type="button" onClick={() => handleTestingLogin('normal')}>
-            Normal User
+            user1@test.com
           </Button>
         </Form.Group>
       </Form>

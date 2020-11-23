@@ -2,6 +2,7 @@ import React, { useContext } from 'react'
 import { Breadcrumb, Button } from 'react-bootstrap'
 import { Redirect } from 'react-router-dom'
 import { AuthContext } from '../contexts/authContext'
+import { isAdmin } from '../utils'
 import { LOGOUT, LOCAL_STORAGE_KEY } from '../contexts/constants'
 
 const Header = () => {
@@ -11,6 +12,7 @@ const Header = () => {
     return window.location.pathname === path
   }
 
+  // Logout
   const handleLogout = () => {
     dispatch({ type: LOGOUT })
     localStorage.removeItem(LOCAL_STORAGE_KEY)
@@ -34,6 +36,13 @@ const Header = () => {
         <Breadcrumb.Item href="/reviews" active={isActive('/reviews')}>
           Review Tasks
         </Breadcrumb.Item>
+        {isAdmin(user) && (
+          <>
+            <Breadcrumb.Item href="/employees" active={isActive('/employees')}>
+              Employees
+            </Breadcrumb.Item>
+          </>
+        )}
       </Breadcrumb>
     </header>
   )
