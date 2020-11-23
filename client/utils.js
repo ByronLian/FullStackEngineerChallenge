@@ -1,8 +1,8 @@
-export const isAdmin = (user) => {
+export const isAdmin = (user = {}) => {
   return Object.keys(user).length > 0 && user.role === 'admin'
 }
 
-export const isLogin = (user) => {
+export const isLogin = (user = {}) => {
   return Object.keys(user).length > 0
 }
 

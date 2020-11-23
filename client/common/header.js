@@ -26,7 +26,7 @@ const Header = () => {
         <div className="header">
           <h4 className="header_title">Performance Review System</h4>
           <h6 className="header_user">
-            {`Hi ${user.first_name} ${user.last_name}`}
+            {user && `Hi ${user.first_name} ${user.last_name}`}
             {',  '}
             <Button variant="warning" onClick={handleLogout}>
               Logout
