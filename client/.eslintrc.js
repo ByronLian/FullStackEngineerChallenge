@@ -3,6 +3,7 @@ module.exports = {
     browser: true,
     es6: true,
   },
+  ignorePatterns: ['**/tests/**/*.js'],
   extends: ['airbnb', 'plugin:prettier/recommended'],
   parserOptions: {
     ecmaFeatures: {
