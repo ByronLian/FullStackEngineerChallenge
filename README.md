@@ -20,14 +20,12 @@ This will run both api server and application, If you want to run with initial D
 ```shell
 npm run start
 ```
-**Open**: http://localhost:3500/
+ - **Open**: http://localhost:3500/
 
-**Login**
-Click demo account to quick login as Admin or Normal user
-You can also check other accounts in `/server/db/testingData.js` or create new one after login as Admin
+ - **Login**
+   Click demo account to quick login as Admin or Normal user. You can also check other accounts in `/server/db/testingData.js` or create new one after login as Admin
 
-![Login](https://github.com/ByronLian/FullStackEngineerChallenge/blob/master/_assets/login.png)
-
+<img src="https://github.com/ByronLian/FullStackEngineerChallenge/blob/master/_assets/login.png" height="350" />
 
 ### Tech
 #### Server side
@@ -50,7 +48,9 @@ You can also check other accounts in `/server/db/testingData.js` or create new o
 - In each review period, each employee will have only one auditor
 
 #### Server side
-##### Tables
+I chose express as api server becuase it can build api in short time and since the system might be bigger letter so I extra api logic as modules for easy to extend in future, the table design is also easy to upgrate to bigger DB like MySQL if needed.
+
+**Tables**
 ![Tables](https://github.com/ByronLian/FullStackEngineerChallenge/blob/master/_assets/DB_schema.png)
 
   - **USERS**: It records all employees data with unique **email** and **id** as PK, active 1 mean employee is still in company and 0 is not, **role** means system role ( Admin or normal user )
@@ -59,8 +59,9 @@ You can also check other accounts in `/server/db/testingData.js` or create new o
   
   - **REVIEWS**: It records all review data, **review_id** is FK for **REVIEW_MAIN** **id**, **auditor_id** and **candidate_id** are FK for **USERS** **id**
 
-##### APIs
-**API Server**: http://localhost:8888/  Below are API endpoints in express server, check `/server/apis/` folder for more information
+**APIs**
+
+**API example**: http://localhost:8888/api/users  Below are API endpoints in express server, check `/server/apis/` folder for more information
 
    - **login api**: For login and only allow employee who is active to login
 ```javascript
@@ -100,11 +101,11 @@ get("/api/all-reviews/:id", [reviewApi.getReviewsByPeriodId]);
   I use this to do client side routing, it's quick cause we can switch between pages without waiting server side reloading
 
 - ##### Jest & Enzyme
-  For unit testing, I only did some basic unit testings due to time limitation
+  For unit testing, I only did some basic unit testings due to time limitation, check `/client/_tests/` for more
 
 ### What can be better ?
 #### Security
- I didn't check if there's any potenial issue for system security or not since it launch as an internal system. But we should at least make sure below 2 cases for those public system
+ I didn't check if there's any potenial issue for system security or not. But we should at least make sure below 2 cases if it's a public system
 
  - Clent side, for example XSS
  - Server side, for example SQL injection
@@ -114,14 +115,14 @@ get("/api/all-reviews/:id", [reviewApi.getReviewsByPeriodId]);
   - Spinner: When system is doing action after user trigger, we should to let user know now system is working
   - Form Validation: React form validation can be quiet trouble some but we can use some libs like formik or react-hook-form
 
-#### Feature
- - Enhance review feature: We only have comment input for review now, we can add something like performance level 50%~200% to show how hard that this employee did for this period
+#### Funtions
+ - Enhance review function: We only have comment input for review now, we can add something like performance level 50%~200% to show how hard that this employee did for this period
  - Delete period function: Let Admin can delete those review periods which were created by mistakenly
  
 #### Others
  - Unit testing coverage
- - webpack finish production build
- - seperate js for each page for reducing js size
+ - Webpack production build
+ - Seperate js for each page for reducing js size
 
 ### Folder Structure
 All client side codes are under `client/` and all api & DB codes are under` server/`
