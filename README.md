@@ -5,12 +5,12 @@
 2. npm
 
 ### Setup
-Clone repo
+1. Clone repo
 ```shell
 git clone https://github.com/ByronLian/FullStackEngineerChallenge.git
 cd FullStackEngineerChallenge
 ```
-Install all dependencies packages
+2. Install all dependencies packages
 ```shell
 npm install
 ```
@@ -22,9 +22,12 @@ npm run start
 ```
 **Open**: http://localhost:3500/
 
-There are 2 demo accounts under "Login" button for you to quick login as different roles, "admin@test.com" is for **Admin** and "user1@test.com" is **normal user**
+**Login**
+Click demo account to quick login as Admin or Normal user
+You can also check other accounts in `/server/db/testingData.js` or create new one after login as Admin
 
-You can also check other accounts in `/server/db/testingData.js` or create new one after click demo account "admin@test.com"
+![Login](https://github.com/ByronLian/FullStackEngineerChallenge/blob/master/_assets/login.png)
+
 
 ### Tech
 #### Server side
@@ -48,7 +51,7 @@ You can also check other accounts in `/server/db/testingData.js` or create new o
 
 #### Server side
 ##### Tables
-![Tables](https://github.com/ByronLian/FullStackEngineerChallenge/blob/master/server/_assets/DB_schema.png)
+![Tables](https://github.com/ByronLian/FullStackEngineerChallenge/blob/master/_assets/DB_schema.png)
 
   - **USERS**: It records all employees data with unique **email** and **id** as PK, active 1 mean employee is still in company and 0 is not, **role** means system role ( Admin or normal user )
   
@@ -61,26 +64,26 @@ You can also check other accounts in `/server/db/testingData.js` or create new o
 
    - **login api**: For login and only allow employee who is active to login
 ```javascript
-app.get("/api/users", [userApi.getUsers]);
-app.post("/api/users", [userApi.addNewUser]);
-app.patch("/api/users/:id", [userApi.updateUser]);
+get("/api/users", [userApi.getUsers]);
+post("/api/users", [userApi.addNewUser]);
+patch("/api/users/:id", [userApi.updateUser]);
 ```
 
    - **user api**: For add / edit employee data
 ```javascript
-app.get("/api/users", [userApi.getUsers]);
-app.post("/api/users", [userApi.addNewUser]);
-app.patch("/api/users/:id", [userApi.updateUser]);
+get("/api/users", [userApi.getUsers]);
+post("/api/users", [userApi.addNewUser]);
+patch("/api/users/:id", [userApi.updateUser]);
 ```
 
    - **review api**: For  add / edit all reviews and review period data
 ```javascript
-app.get("/api/reviews/:id", [reviewApi.getReviewsByUser]);
-app.patch("/api/reviews/:id", [reviewApi.updateReviewByUser]);
-app.get("/api/review-periods/", [reviewApi.getAllPerformancePeriods]);
-app.post("/api/review-periods/", [reviewApi.addNewPerformancePeriod]);
-app.patch("/api/review-periods/:id", [reviewApi.updatePerformancePeriod]);
-app.get("/api/all-reviews/:id", [reviewApi.getReviewsByPeriodId]);
+get("/api/reviews/:id", [reviewApi.getReviewsByUser]);
+patch("/api/reviews/:id", [reviewApi.updateReviewByUser]);
+get("/api/review-periods/", [reviewApi.getAllPerformancePeriods]);
+post("/api/review-periods/", [reviewApi.addNewPerformancePeriod]);
+patch("/api/review-periods/:id", [reviewApi.updatePerformancePeriod]);
+get("/api/all-reviews/:id", [reviewApi.getReviewsByPeriodId]);
 ```
 
 #### Client side
@@ -125,24 +128,23 @@ All client side codes are under `client/` and all api & DB codes are under` serv
 ```
  .
  |__client
-       |__ _tests              // Client side unit testing
-       |__apis                 // Client side api modules
-	   |__common           // Common components
-	   |__contexts         // Context for managment global login state
-	   |__pages            // Page components
-	   |__App.css
-	   |__App.jsx
-	   |__index.html
-	   |__index.js
-	   |__utils.js
-	   ...
+       |__ _tests          // Client side unit testing
+       |__apis             // Client side api modules
+       |__common           // Common components
+       |__contexts         // Context for managment global login state
+       |__pages            // Page components
+       |__App.css
+       |__App.jsx
+       |__index.html
+       |__index.js
+       |__utils.js
+       ...
  |__server
-       |__ _assets            // Files related to server side
-	   |__apis            // Server side api codes
-	   |__db              // Database relsted
-	   |__constants.js
-	   |__server.js       // Express server main file
-	   |__sql.js
+       |__apis            // Server side api codes
+       |__db              // Database relsted
+       |__constants.js
+       |__server.js       // Express server main file
+       |__sql.js
 |...
 |...
 
