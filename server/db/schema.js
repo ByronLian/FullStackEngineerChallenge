@@ -1,38 +1,15 @@
 /*
---------------------------------------
-|               USERS                |
---------------------------------------
-| id (PK)                | INTEGER   |
-| first_name             | TEXT      |
-| last_name              | TEXT      |
-| email	(UNIQUE)         | TEXT      |
-| password               | TEXT      |
-| role                   | TEXT      | 
-| active (DEFAULT:1)     | INTEGER   |
-| created_time (Auto)    | TIMESTAMP |
---------------------------------------
-
---------------------------------------
-|            REVIEW_MAIN             |
---------------------------------------
-| id (PK)                | INTEGER   |
-| title                  | TEXT      |
-| start_time             | TEXT      |
-| end_time               | TEXT      |
-| is_closed (DEFAULT:0)  | INTEGER   |
-| created_time (Auto)    | TIMESTAMP |
---------------------------------------
-
---------------------------------------
-|              REVIEWS               |
---------------------------------------
-| id (PK)                | INTEGER   |
-| review_id (FK)         | INTEGER   |
-| auditor_id (FK)        | INTEGER   |
-| candidate_id (FK)      | INTEGER   |
-| updated_time           | TEXT      |
-| content (DEFAULT:'')   | TEXT      |
-| created_time (Auto)    | TIMESTAMP |
+--------------------------------------          --------------------------------------          --------------------------------------   
+|               USERS                |          |              REVIEWS               |          |            REVIEW_MAIN             |
+--------------------------------------          --------------------------------------          --------------------------------------
+| id (PK)                | INTEGER   |---|      | id (PK)                | INTEGER   |      |---| id (PK)                | INTEGER   |
+| first_name             | TEXT      |   |      | review_id (FK)         | INTEGER   | <<<<<|   | title                  | TEXT      |
+| last_name              | TEXT      |   |>>>>> | auditor_id (FK)        | INTEGER   |          | start_time             | TEXT      |
+| email	(UNIQUE)         | TEXT      |   |>>>>> | candidate_id (FK)      | INTEGER   |          | end_time               | TEXT      |
+| password               | TEXT      |          | updated_time           | TEXT      |          | is_closed (DEFAULT:0)  | INTEGER   |
+| role                   | TEXT      |          | content (DEFAULT:'')   | TEXT      |          | created_time (Auto)    | TIMESTAMP |
+| active (DEFAULT:1)     | INTEGER   |          | created_time (Auto)    | TIMESTAMP |          --------------------------------------
+| created_time (Auto)    | TIMESTAMP |          --------------------------------------
 --------------------------------------
 */
 
