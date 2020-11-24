@@ -1,4 +1,4 @@
-## Full Stack Developer Challenge
+## [Full Stack Developer Challenge](https://github.com/Pay-Baymax/FullStackEngineerChallenge)
 
 ### Before setup
 1. Node >= version 10
@@ -22,7 +22,9 @@ npm run start
 ```
 **Open**: http://localhost:3500/
 
-There are 2 demo accounts under "Login" button for you to quick login as different roles. "admin@test.com" is for **Admin** and "user1@test.com" is** normal user**. You can also check other accounts in `/server/db/testingData.js` or create new one after click demo account "admin@test.com"
+There are 2 demo accounts under "Login" button for you to quick login as different roles, "admin@test.com" is for **Admin** and "user1@test.com" is **normal user**
+
+You can also check other accounts in `/server/db/testingData.js` or create new one after click demo account "admin@test.com"
 
 ### Tech
 #### Server side
@@ -45,33 +47,33 @@ There are 2 demo accounts under "Login" button for you to quick login as differe
 - In each review period, each employee will have only one auditor
 
 #### Server side
-- ##### Tables
+##### Tables
+![Tables](https://github.com/ByronLian/FullStackEngineerChallenge/blob/master/server/_assets/DB_schema.png)
 
- - ** USERS**: It records all employees data with unique **email** and **id** as PK, active 1 mean employee is still in company and 0 is not, **role** means system role ( Admin or normal user )
+  - **USERS**: It records all employees data with unique **email** and **id** as PK, active 1 mean employee is still in company and 0 is not, **role** means system role ( Admin or normal user )
+  
+  - **REVIEW_MAIN**: It records all review periods with **id** as PK, **is_closed** 1 means this review period has been closed by Admin. When Admin create new review period, system will create new review data into **REVIEWS** for all active employees 
+  
+  - **REVIEWS**: It records all review data, **review_id** is FK for **REVIEW_MAIN** **id**, **auditor_id** and **candidate_id** are FK for **USERS** **id**
 
- - ** REVIEW_MAIN**: It records all review periods with **id** as PK, **is_closed** 1 means this review period has been closed by Admin. When Admin create new review period, system will create new review data into **REVIEWS** for all active employees 
+##### APIs
+**API Server**: http://localhost:8888/  Below are API endpoints in express server, check `/server/apis/` folder for more information
 
- - ** REVIEWS**: It records all review data, **review_id** is FK for **REVIEW_MAIN** **id**, **auditor_id** and **candidate_id** are FK for **USERS** **id**
-
-- ##### APIs
-**API Server  Path: **: http://localhost:8888/
-Below are API endpoints in express server, check `/server/apis/` folder for more information
-
- - **login api**: For login and only allow employee who is active to login
+   - **login api**: For login and only allow employee who is active to login
 ```javascript
 app.get("/api/users", [userApi.getUsers]);
 app.post("/api/users", [userApi.addNewUser]);
 app.patch("/api/users/:id", [userApi.updateUser]);
 ```
 
- - **user api**: For add / edit employee data
+   - **user api**: For add / edit employee data
 ```javascript
 app.get("/api/users", [userApi.getUsers]);
 app.post("/api/users", [userApi.addNewUser]);
 app.patch("/api/users/:id", [userApi.updateUser]);
 ```
 
- - **review api**: For  add / edit all reviews and review period data
+   - **review api**: For  add / edit all reviews and review period data
 ```javascript
 app.get("/api/reviews/:id", [reviewApi.getReviewsByUser]);
 app.patch("/api/reviews/:id", [reviewApi.updateReviewByUser]);
@@ -83,19 +85,19 @@ app.get("/api/all-reviews/:id", [reviewApi.getReviewsByPeriodId]);
 
 #### Client side
 - ##### useContext & useReducer
-I implement global state management for login function with useContext and useReducer, so we can use that state in entire application for authorization. I didn't use redux or flow because this applicaiton don't have complicated states, check `/client/contexts/` for more
+  I implement global state management for login function with useContext and useReducer, so we can use that state in entire application for authorization. I didn't use redux or flow because this applicaiton don't have complicated states, check `/client/contexts/` for more
 
 - ##### API call
-I extra api calls to serveral modules to match server side api, so each api can have no dependencies with react components, check `/clients/apis/` for more
+  I extra api calls to serveral modules to match server side api, so each api can have no dependencies with react components, check `/clients/apis/` for more
 
 - ##### React bootstrap
-I chose react bootstrap as CSS lib cause it can help us to build a system with set of styled components in short time and we can also custom some attributes
+  I chose react bootstrap as CSS lib cause it can help us to build a system with set of styled components in short time and we can also custom some attributes
 
 - ##### React router dom
-I use this to do client side routing, it's quick cause we can switch between pages without waiting server side reloading
+  I use this to do client side routing, it's quick cause we can switch between pages without waiting server side reloading
 
 - ##### Jest & Enzyme
-For unit testing, I only did some basic unit testings due to time limitation
+  For unit testing, I only did some basic unit testings due to time limitation
 
 ### What can be better ?
 #### Security
@@ -123,11 +125,11 @@ All client side codes are under `client/` and all api & DB codes are under` serv
 ```
  .
  |__client
-       |__ _tests               // Client side unit testing
-       |__apis                   // Client side api modules
-	   |__common            // Common components
-	   |__contexts            // Context for managment global login state
-	   |__pages                // Page components
+       |__ _tests              // Client side unit testing
+       |__apis                 // Client side api modules
+	   |__common           // Common components
+	   |__contexts         // Context for managment global login state
+	   |__pages            // Page components
 	   |__App.css
 	   |__App.jsx
 	   |__index.html
@@ -135,11 +137,11 @@ All client side codes are under `client/` and all api & DB codes are under` serv
 	   |__utils.js
 	   ...
  |__server
-       |__ _assets           // Files related to server side
-	   |__apis                // Server side api modules
-	   |__db                  // Database
+       |__ _assets            // Files related to server side
+	   |__apis            // Server side api codes
+	   |__db              // Database relsted
 	   |__constants.js
-	   |__server.js        // Express server main file
+	   |__server.js       // Express server main file
 	   |__sql.js
 |...
 |...
